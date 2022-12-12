@@ -10,7 +10,12 @@
           <div class="card-body">
             <h5 class="card-title">{{$artikel->judul}}</h5>
             <p class="card-text"><?= $artikel->isi ?></p>
-            <p class="card-text"><small class="text-muted">{{$artikel->created_at}}</small></p>
+            @php
+                $dt = new DateTime($artikel->created_at);
+                $date = $dt->format('m/d/Y');
+                $time = $dt->format('H:i');
+            @endphp
+            <p class="card-text"><small class="text-muted">{{$date}} - {{$time}} </small></p>
           </div>
         </div>
       </div>
